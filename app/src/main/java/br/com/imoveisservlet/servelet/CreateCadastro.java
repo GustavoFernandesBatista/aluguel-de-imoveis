@@ -1,4 +1,4 @@
-package br.com.imoveisservlet;
+package br.com.imoveisservlet.servelet;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
