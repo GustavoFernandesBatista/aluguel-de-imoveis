@@ -9,14 +9,15 @@ import java.io.IOException;
 @WebServlet("/create-imovel")
 
 public class CreateAlugueldImoveis extends HttpServlet {
-
-
-
-
-        @Override
+    @Override
         protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
             String imovel = req.getParameter("imovel-name");
+            String proprietario = req.getParameter("proprietario-name");
+
+
+            System.out.println(proprietario);
+
             System.out.println(imovel);
 
 
