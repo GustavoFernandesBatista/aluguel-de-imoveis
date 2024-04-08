@@ -4,7 +4,6 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-
   <listener>
     <listener-class>org.h2.server.web.DbStarter</listener-class>
   </listener>
@@ -19,4 +18,5 @@
     <servlet-name>H2Console</servlet-name>
     <url-pattern>/console/*</url-pattern>
   </servlet-mapping>
+
 </web-app>

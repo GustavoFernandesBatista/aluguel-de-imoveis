@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 public class ImovelDao {
 
     public void createImovel(Imovel imovel) {
-        String SQL = "INSERT INTO IMOVEL (NAME, PROPRIETARIO) VALUES (?)";
+        String SQL = "INSERT INTO IMOVEL (NOME, AUTOR) VALUES (?, ?)";
 
         try {
 
@@ -21,6 +21,7 @@ public class ImovelDao {
 
             preparedStatement.setString(1, imovel.getImovel());
             preparedStatement.setString(2, imovel.getProprietario());
+
             preparedStatement.execute();
 
             System.out.println("success in insert imovel");
@@ -29,7 +30,7 @@ public class ImovelDao {
 
         } catch (Exception e) {
 
-            System.out.println("fail in database connection");
+            System.out.print("Erro no processamento" + e.getMessage());
 
         }
 
