@@ -2,9 +2,10 @@ package br.com.imoveisservlet.dao;
 
 import br.com.imoveisservlet.model.Imovel;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class ImovelDao {
 
@@ -31,6 +32,48 @@ public class ImovelDao {
         } catch (Exception e) {
 
             System.out.print("Erro no processamento" + e.getMessage());
+
+        }
+    }
+
+    public List<Imovel> ListadeImoveis() {
+        String SQL = "SELECT * FROM  IMOVEIS";
+
+        try {
+
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+
+            System.out.println("success in database connection");
+
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            List<Imovel> imovel = new ArrayList<>();
+
+            while (resultSet.next()) {
+                String nomeImovel = resultSet.getString("NOME");
+
+
+                String nomeProprietario = resultSet.getString("AUTOR");
+
+                Imovel i = new Imovel(nomeImovel, nomeProprietario);
+
+                imovel.add(i);
+
+
+            }
+
+            System.out.println("Busca com sucesso");
+
+            connection.close();
+
+            return imovel;
+
+        } catch (SQLException e) {
+            System.out.println("Erro no processamento " + e.getMessage());
+
+            return Collections.emptyList();
 
         }
 
