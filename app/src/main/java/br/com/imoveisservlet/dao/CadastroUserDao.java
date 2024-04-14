@@ -11,7 +11,7 @@ public class CadastroUserDao {
     public void createCadastroUser(CadastroUser cadastroUser){
 
 
-        String SQL = "INSERT INTO CADASTROUSER ( NOME, CPF, TELEFONE, EMAIL, SENHA, REPETESENHA) VALUES (?,?,?,?,?,?)";
+        String SQL = "INSERT INTO CADASTRO ( COMPLETE_NAME, EMAIL, CPF, TELEFONE, SENHA, REPETIR_SENHA) VALUES (?,?,?,?,?,?)";
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
@@ -21,9 +21,9 @@ public class CadastroUserDao {
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
             preparedStatement.setString(1, cadastroUser.getNomeCompleto());
-            preparedStatement.setString(2, cadastroUser.getCpf());
-            preparedStatement.setString(3, cadastroUser.getTelefone());
-            preparedStatement.setString(4, cadastroUser.getEmail());
+            preparedStatement.setString(2, cadastroUser.getEmail());
+            preparedStatement.setString(3, cadastroUser.getCpf());
+            preparedStatement.setString(4, cadastroUser.getTelefone());
             preparedStatement.setString(5, cadastroUser.getSenha());
             preparedStatement.setString(6, cadastroUser.getRepeteSenha());
 

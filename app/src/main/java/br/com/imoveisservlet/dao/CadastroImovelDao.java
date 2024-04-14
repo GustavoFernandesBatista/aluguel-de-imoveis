@@ -11,7 +11,7 @@ public class CadastroImovelDao {
 
     public void createImovel(CadastroImovel imovel) {
 
-        String SQL = "INSERT INTO IMOVEL (NOME, AUTOR) VALUES (?, ?)";
+        String SQL = "INSERT INTO CADASTRO_IMOVEL(TITULO_IMOVEL, ENDERECO,NUM_QUARTOS, NUM_BANHEIROS, NUM_VAGAS, VALOR_NOITE, IMAGENS, OBS ) VALUES (?,?,?,?,?,?,?,?)";
 
         try {
 
@@ -21,8 +21,16 @@ public class CadastroImovelDao {
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
-            preparedStatement.setString(1, imovel.getImovel());
-            preparedStatement.setString(2, imovel.getProprietario());
+           preparedStatement.setString(1 ,imovel.getTitulo_imovel());
+            preparedStatement.setString(2 ,imovel.getEndereco());
+            preparedStatement.setString(3 ,imovel.getNum_quartos());
+            preparedStatement.setString(4,imovel.getNum_banheiro());
+            preparedStatement.setString(5 ,imovel.getNum_vagas());
+            preparedStatement.setString(6 ,imovel.getValor_noite());
+
+            preparedStatement.setString(7 ,imovel.getImagens());
+            preparedStatement.setString(8,imovel.getObs());
+
 
             preparedStatement.execute();
 
@@ -37,7 +45,7 @@ public class CadastroImovelDao {
         }
     }
 
-    public List<CadastroImovel> ListadeImoveis() {
+    /*public List<CadastroImovel> ListadeImoveis() {
         String SQL = "SELECT * FROM  IMOVEIS";
 
         try {
@@ -76,7 +84,8 @@ public class CadastroImovelDao {
 
             return Collections.emptyList();
 
-        }
+       } */
 
     }
-}
+
+

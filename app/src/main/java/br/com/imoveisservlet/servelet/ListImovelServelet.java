@@ -14,13 +14,12 @@ import br.com.imoveisservlet.model.CadastroImovel;
 @WebServlet("/painel-imovel")
 public class ListImovelServelet extends HttpServlet {
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
+   /* protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
 
 
         super.doGet(req, res);
 
-        List<CadastroImovel> imoveis = new CadastroImovelDao().ListadeImoveis();
+        List<CadastroImovel> imoveis = new CadastroImovelDao()();
 
         req.setAttribute("imoveis" , imoveis);
 
@@ -32,6 +31,5 @@ public class ListImovelServelet extends HttpServlet {
 
 
 
-    }
+    */}
 
-}
