@@ -1,28 +1,18 @@
 package br.com.imoveisservlet.servelet;
-import br.com.imoveisservlet.dao.ImovelDao;
-import br.com.imoveisservlet.model.Imovel;
+import br.com.imoveisservlet.dao.CadastroUserDao;
+import br.com.imoveisservlet.model.CadastroUser;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-@WebServlet("/cadastro")
-
-public class CreateCadastro extends HttpServlet {
+@WebServlet("/cadastrouser")
+public class CreateCadastroUser extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        resp.sendRedirect("cadastro.html");
-
-
-    }
-
-
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-
         String nomeCompleto = req.getParameter("nomeCompleto-cadastro");
         String email = req.getParameter("email-cadastro");
         String cpf = req.getParameter("cpf-cadastro");
@@ -30,20 +20,12 @@ public class CreateCadastro extends HttpServlet {
         String senha = req.getParameter("senha-cadastro");
         String repetirSenha = req.getParameter("repetirSenha-cadastro");
 
+        CadastroUser cadastroUser = new CadastroUser(nomeCompleto, cpf, telefone, email, senha, repetirSenha);
+        new CadastroUserDao().createCadastroUser(cadastroUser);
 
-
-
-        System.out.println(nomeCompleto);
-        System.out.println(email);
-        System.out.println(cpf);
-        System.out.println(telefone);
-        System.out.println(senha);
-        System.out.println(repetirSenha);
-
-
-
-        req.getRequestDispatcher("cadastro.html").forward(req,resp);
+        req.getRequestDispatcher("index.html").forward(req,resp);
 
     }
+
 
 }

@@ -1,15 +1,16 @@
 package br.com.imoveisservlet.dao;
 
-import br.com.imoveisservlet.model.Imovel;
+import br.com.imoveisservlet.model.CadastroImovel;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ImovelDao {
+public class CadastroImovelDao {
 
-    public void createImovel(Imovel imovel) {
+    public void createImovel(CadastroImovel imovel) {
+
         String SQL = "INSERT INTO IMOVEL (NOME, AUTOR) VALUES (?, ?)";
 
         try {
@@ -36,7 +37,7 @@ public class ImovelDao {
         }
     }
 
-    public List<Imovel> ListadeImoveis() {
+    public List<CadastroImovel> ListadeImoveis() {
         String SQL = "SELECT * FROM  IMOVEIS";
 
         try {
@@ -49,7 +50,7 @@ public class ImovelDao {
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            List<Imovel> imovel = new ArrayList<>();
+            List<CadastroImovel> imovel = new ArrayList<>();
 
             while (resultSet.next()) {
                 String nomeImovel = resultSet.getString("NOME");
@@ -57,7 +58,7 @@ public class ImovelDao {
 
                 String nomeProprietario = resultSet.getString("AUTOR");
 
-                Imovel i = new Imovel(nomeImovel, nomeProprietario);
+                CadastroImovel i = new CadastroImovel(nomeImovel, nomeProprietario);
 
                 imovel.add(i);
 

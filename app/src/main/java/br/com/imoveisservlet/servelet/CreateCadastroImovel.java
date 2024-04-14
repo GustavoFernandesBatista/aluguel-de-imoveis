@@ -1,6 +1,6 @@
 package br.com.imoveisservlet.servelet;
-import br.com.imoveisservlet.dao.ImovelDao;
-import br.com.imoveisservlet.model.Imovel;
+import br.com.imoveisservlet.dao.CadastroImovelDao;
+import br.com.imoveisservlet.model.CadastroImovel;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +11,7 @@ import java.io.IOException;
 
 @WebServlet("/create-imovel")
 
-public class CreateAlugueldImoveis extends HttpServlet {
+public class CreateCadastroImovel extends HttpServlet {
     @Override
         protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -20,15 +20,15 @@ public class CreateAlugueldImoveis extends HttpServlet {
             String imovel = req.getParameter("imovel-name");
             String proprietario = req.getParameter("proprietario-name");
 
-        Imovel i = new Imovel(imovel,proprietario);
+        CadastroImovel i = new CadastroImovel(imovel,proprietario);
 
 
             System.out.println(proprietario);
 
             System.out.println(imovel);
 
-        ImovelDao imoveldao = new ImovelDao();
-        imoveldao.createImovel(i);
+        CadastroImovelDao imoveldao = new CadastroImovelDao();
+
 
 
             req.getRequestDispatcher("index.html").forward(req,resp);

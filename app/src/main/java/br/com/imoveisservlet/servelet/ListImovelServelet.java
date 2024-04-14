@@ -8,9 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-import  br.com.imoveisservlet.servelet.ListImovelServelet;
-import br.com.imoveisservlet.dao.ImovelDao;
-import br.com.imoveisservlet.model.Imovel;
+import br.com.imoveisservlet.dao.CadastroImovelDao;
+import br.com.imoveisservlet.model.CadastroImovel;
 
 @WebServlet("/painel-imovel")
 public class ListImovelServelet extends HttpServlet {
@@ -21,7 +20,7 @@ public class ListImovelServelet extends HttpServlet {
 
         super.doGet(req, res);
 
-        List<Imovel> imoveis = new ImovelDao().ListadeImoveis();
+        List<CadastroImovel> imoveis = new CadastroImovelDao().ListadeImoveis();
 
         req.setAttribute("imoveis" , imoveis);
 

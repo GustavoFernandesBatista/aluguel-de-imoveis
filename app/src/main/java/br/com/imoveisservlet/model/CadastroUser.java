@@ -1,6 +1,6 @@
 package br.com.imoveisservlet.model;
 
-public class Cadastro {
+public class CadastroUser {
 
     private String nomeCompleto;
     private String cpf;
@@ -14,7 +14,7 @@ public class Cadastro {
     private String repeteSenha;
 
 
-    public Cadastro(String nomeCompleto, String cpf, String telefone, String email, String senha, String repeteSenha) {
+    public CadastroUser(String nomeCompleto, String cpf, String telefone, String email, String senha, String repeteSenha) {
         this.nomeCompleto = nomeCompleto;
         this.cpf = cpf;
         this.telefone = telefone;
