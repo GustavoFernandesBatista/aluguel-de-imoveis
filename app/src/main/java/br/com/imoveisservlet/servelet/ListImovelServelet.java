@@ -1,4 +1,4 @@
-package br.com.imoveisservlet.servelet;
+/*package br.com.imoveisservlet.servelet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,22 +14,28 @@ import br.com.imoveisservlet.model.CadastroImovel;
 @WebServlet("/painel-imovel")
 public class ListImovelServelet extends HttpServlet {
 
-   /* protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
 
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        processRequest(req, resp);
+    }
 
-        super.doGet(req, res);
-
-        List<CadastroImovel> imoveis = new CadastroImovelDao()();
-
-        req.setAttribute("imoveis" , imoveis);
-
-        req.getRequestDispatcher("dashboard.jsp").forward(req, res);
-
-        req.getRequestDispatcher("index.html").forward(req, res);
-
-        res.sendRedirect("/painel-imovel");
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        processRequest(req, resp);
+    }
 
 
 
-    */}
 
+    private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+
+        List<CadastroImovel> cadastro = new CadastroImovelDao().ListadeImoveis();
+
+        req.setAttribute("cadastroImov", cadastro);
+
+        req.getRequestDispatcher("dashCadastroImovel.jsp").forward(req, resp);
+
+    }
+
+}
+*/

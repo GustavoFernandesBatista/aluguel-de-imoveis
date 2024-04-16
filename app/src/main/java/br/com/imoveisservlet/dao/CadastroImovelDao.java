@@ -45,7 +45,7 @@ public class CadastroImovelDao {
         }
     }
 
-    /*public List<CadastroImovel> ListadeImoveis() {
+   /* public List<CadastroImovel> ListadeImoveis() {
         String SQL = "SELECT * FROM  IMOVEIS";
 
         try {
@@ -61,12 +61,17 @@ public class CadastroImovelDao {
             List<CadastroImovel> imovel = new ArrayList<>();
 
             while (resultSet.next()) {
-                String nomeImovel = resultSet.getString("NOME");
 
+                String tituloImovel = resultSet.getNString("TITULO_IMOVEL");
+                String endereco = resultSet.getNString("ENDERECO");
+                String numQuartos = resultSet.getNString("NUM_QUARTOS");
+                String numBanheiros = resultSet.getNString("NUM_BANHEIROS");
+                String numVagas = resultSet.getNString("NUM_VAGAS");
+                String valorNoite = resultSet.getNString("VALOR_NOITE");
+                String imagem = resultSet.getNString("IMGENS");
+                String obs = resultSet.getNString("OBS");
 
-                String nomeProprietario = resultSet.getString("AUTOR");
-
-                CadastroImovel i = new CadastroImovel(nomeImovel, nomeProprietario);
+                CadastroImovel i = new CadastroImovel(tituloImovel, endereco, numQuartos, numBanheiros, numVagas, valorNoite, imagem, obs);
 
                 imovel.add(i);
 
@@ -84,8 +89,11 @@ public class CadastroImovelDao {
 
             return Collections.emptyList();
 
-       } */
 
+            }
+        }
+
+    */
     }
 
 

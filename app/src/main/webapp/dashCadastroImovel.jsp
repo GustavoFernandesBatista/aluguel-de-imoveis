@@ -7,18 +7,19 @@
 </head>
 <body>
   <div>
-    <h1>Cars</h1>
+    <h1>Imoveis</h1>
     <table>
         <tr>
             <th>ID</th>
-            <th>NOME</th>
-            <th>AUTOR</th>
+            <th>cadastro_imovel</th>
+
         </tr>
-        c:forEach var="nomeImovel","nomeAutor" items="${imoveis}"
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
+        <c:forEach var="cadastro" items="${cadastroImov}">
+            <tr>
+                <td></td>
+                <td>${cadastro.cadastro_imovel}</td>
+            </tr>
+        </c:forEach>
     </table>
   </div>
 </body>

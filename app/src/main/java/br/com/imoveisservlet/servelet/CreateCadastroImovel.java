@@ -38,7 +38,7 @@ public class CreateCadastroImovel extends HttpServlet {
         CadastroImovelDao cadastroImovelDao = new CadastroImovelDao();
         cadastroImovelDao.createImovel(cadastroImovel);
 
-        req.getRequestDispatcher("Cadastro_Imovel.html").forward(req,resp);
+        req.getRequestDispatcher("Cadastro_Imovel.html").forward(req, resp);
 
 
 
