@@ -1,4 +1,4 @@
-/*package br.com.imoveisservlet.servelet;
+package br.com.imoveisservlet.servelet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +12,7 @@ import br.com.imoveisservlet.dao.CadastroImovelDao;
 import br.com.imoveisservlet.model.CadastroImovel;
 
 @WebServlet("/painel-imovel")
-public class ListImovelServelet extends HttpServlet {
+public class ListaImovelServlet extends HttpServlet {
 
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -38,4 +38,3 @@ public class ListImovelServelet extends HttpServlet {
     }
 
 }
-*/

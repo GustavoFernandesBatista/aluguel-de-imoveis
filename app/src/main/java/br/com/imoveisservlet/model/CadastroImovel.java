@@ -1,48 +1,48 @@
 package br.com.imoveisservlet.model;
 
 public class CadastroImovel {
-    private String titulo_imovel;
+    private String tituloImovel;
     private String endereco;
-    private String num_quartos;
-    private String num_banheiro;
-    private String num_vagas;
-    private String valor_noite;
+    private String numQuartos;
+    private String numBanheiro;
+    private String numVagas;
+    private String valorNoite;
     private String imagens;
     private String obs;
 
-    public CadastroImovel(String titulo_imovel, String endereco, String num_quartos, String num_banheiro, String num_vagas, String valor_noite, String imagens, String obs) {
-        this.titulo_imovel = titulo_imovel;
-        this.endereco = endereco;
-        this.num_quartos = num_quartos;
-        this.num_banheiro = num_banheiro;
-        this.num_vagas = num_vagas;
-        this.valor_noite = valor_noite;
-        this.imagens = imagens;
+    public CadastroImovel(String obs, String imagens, String valorNoite, String numVagas, String numBanheiro, String numQuartos, String endereco, String tituloImovel) {
         this.obs = obs;
+        this.imagens = imagens;
+        this.valorNoite = valorNoite;
+        this.numVagas = numVagas;
+        this.numBanheiro = numBanheiro;
+        this.numQuartos = numQuartos;
+        this.endereco = endereco;
+        this.tituloImovel = tituloImovel;
     }
 
-    public String getTitulo_imovel() {
-        return titulo_imovel;
+    public String getTituloImovel() {
+        return tituloImovel;
     }
 
     public String getEndereco() {
         return endereco;
     }
 
-    public String getNum_quartos() {
-        return num_quartos;
+    public String getNumQuartos() {
+        return numQuartos;
     }
 
-    public String getNum_banheiro() {
-        return num_banheiro;
+    public String getNumBanheiro() {
+        return numBanheiro;
     }
 
-    public String getNum_vagas() {
-        return num_vagas;
+    public String getNumVagas() {
+        return numVagas;
     }
 
-    public String getValor_noite() {
-        return valor_noite;
+    public String getValorNoite() {
+        return valorNoite;
     }
 
     public String getImagens() {

@@ -21,12 +21,12 @@ public class CadastroImovelDao {
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
-           preparedStatement.setString(1 ,imovel.getTitulo_imovel());
+           preparedStatement.setString(1 ,imovel.getTituloImovel());
             preparedStatement.setString(2 ,imovel.getEndereco());
-            preparedStatement.setString(3 ,imovel.getNum_quartos());
-            preparedStatement.setString(4,imovel.getNum_banheiro());
-            preparedStatement.setString(5 ,imovel.getNum_vagas());
-            preparedStatement.setString(6 ,imovel.getValor_noite());
+            preparedStatement.setString(3 ,imovel.getNumQuartos());
+            preparedStatement.setString(4,imovel.getNumBanheiro());
+            preparedStatement.setString(5 ,imovel.getNumVagas());
+            preparedStatement.setString(6 ,imovel.getValorNoite());
 
             preparedStatement.setString(7 ,imovel.getImagens());
             preparedStatement.setString(8,imovel.getObs());
@@ -45,8 +45,8 @@ public class CadastroImovelDao {
         }
     }
 
-   /* public List<CadastroImovel> ListadeImoveis() {
-        String SQL = "SELECT * FROM  IMOVEIS";
+    public List<CadastroImovel> ListadeImoveis() {
+        String SQL = "SELECT * FROM  CADASTRO_IMOVEL";
 
         try {
 
@@ -68,7 +68,7 @@ public class CadastroImovelDao {
                 String numBanheiros = resultSet.getNString("NUM_BANHEIROS");
                 String numVagas = resultSet.getNString("NUM_VAGAS");
                 String valorNoite = resultSet.getNString("VALOR_NOITE");
-                String imagem = resultSet.getNString("IMGENS");
+                String imagem = resultSet.getNString("IMAGENS");
                 String obs = resultSet.getNString("OBS");
 
                 CadastroImovel i = new CadastroImovel(tituloImovel, endereco, numQuartos, numBanheiros, numVagas, valorNoite, imagem, obs);
@@ -93,7 +93,7 @@ public class CadastroImovelDao {
             }
         }
 
-    */
+
     }
 
 
