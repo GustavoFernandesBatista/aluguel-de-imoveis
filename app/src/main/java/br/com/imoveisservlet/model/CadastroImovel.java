@@ -1,6 +1,7 @@
 package br.com.imoveisservlet.model;
 
 public class CadastroImovel {
+    private String IdCadastroImovel;
     private String tituloImovel;
     private String endereco;
     private String numQuartos;
@@ -19,6 +20,18 @@ public class CadastroImovel {
         this.numQuartos = numQuartos;
         this.endereco = endereco;
         this.tituloImovel = tituloImovel;
+    }
+
+    public CadastroImovel(String obs, String imagens, String valorNoite, String numVagas, String numBanheiro, String numQuartos, String endereco, String tituloImovel, String idCadastroImovel) {
+        this.obs = obs;
+        this.imagens = imagens;
+        this.valorNoite = valorNoite;
+        this.numVagas = numVagas;
+        this.numBanheiro = numBanheiro;
+        this.numQuartos = numQuartos;
+        this.endereco = endereco;
+        this.tituloImovel = tituloImovel;
+        IdCadastroImovel = idCadastroImovel;
     }
 
     public String getTituloImovel() {
@@ -51,5 +64,9 @@ public class CadastroImovel {
 
     public String getObs() {
         return obs;
+    }
+
+    public String getIdCadastroImovel() {
+        return IdCadastroImovel;
     }
 }
