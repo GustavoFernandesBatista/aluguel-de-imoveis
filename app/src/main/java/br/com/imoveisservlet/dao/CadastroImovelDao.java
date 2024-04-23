@@ -61,7 +61,7 @@ public class CadastroImovelDao {
             List<CadastroImovel> imovel = new ArrayList<>();
 
             while (resultSet.next()) {
-
+                String idCadastroImovel = resultSet.getNString("ID_CADASTRO_IMOVEL");
                 String tituloImovel = resultSet.getNString("TITULO_IMOVEL");
                 String endereco = resultSet.getNString("ENDERECO");
                 String numQuartos = resultSet.getNString("NUM_QUARTOS");
@@ -71,7 +71,7 @@ public class CadastroImovelDao {
                 String imagem = resultSet.getNString("IMAGENS");
                 String obs = resultSet.getNString("OBS");
 
-                CadastroImovel i = new CadastroImovel(tituloImovel, endereco, numQuartos, numBanheiros, numVagas, valorNoite, imagem, obs);
+                CadastroImovel i = new CadastroImovel(idCadastroImovel,tituloImovel, endereco, numQuartos, numBanheiros, numVagas, valorNoite, imagem, obs);
 
                 imovel.add(i);
 
@@ -90,6 +90,28 @@ public class CadastroImovelDao {
             return Collections.emptyList();
 
 
+            }
+        }
+
+        public void deleteCadastroImovelById(String CadastroImovelId ){
+            String SQL = "DELETE FROM CADASTRO_IMOVEL WHERE ID_CADASTRO_IMOVEL + ?";
+
+            try {
+                Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+
+                System.out.println("success in database connection");
+
+                PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+                preparedStatement.setString(1, CadastroImovelId);
+                preparedStatement.execute();
+
+                System.out.println("SUCESSO EM DELETAR CADASTRO IMOVEL COM ID " + CadastroImovelId);
+
+                connection.close();
+
+
+            }catch (Exception e){
+                System.out.println("ERRO AO CONECTAR AO BANCO DE DADOS");
             }
         }
 

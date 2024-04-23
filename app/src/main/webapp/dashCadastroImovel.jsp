@@ -31,9 +31,8 @@
         </tr>
         <c:forEach var="cadastro" items="${cadastroImov}">
             <tr>
-
+                <td>${cadastro.IdCadastroImovel}</td>
                 <td>${cadastro.tituloImovel}</td>
-
                 <td>${cadastro.endereco}</td>
                 <td>${cadastro.numQuartos}</td>
                 <td>${cadastro.numBanheiro}</td>
@@ -41,6 +40,12 @@
                 <td>${cadastro.valorNoite}</td>
                 <td>${cadastro.imagens}</td>
                 <td>${cadastro.obs}</td>
+                <td>
+                                <form action="/delete-car" method="post">
+                                    <input type="hidden" id="id" name="id" value="${car.id}">
+                                    <button type="submit">Delete</button>
+                                </form>
+                            </td>
             </tr>
         </c:forEach>
     </table>
