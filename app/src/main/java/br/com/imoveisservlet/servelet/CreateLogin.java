@@ -18,16 +18,20 @@ public class CreateLogin extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         processRequest(req, resp);
 
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("Login.html").forward(req, resp);
+
         processRequest(req, resp);
     }
 
     private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         String email = req.getParameter("emailLogin");
         String senha = req.getParameter("senhaLogin");
 
@@ -35,18 +39,20 @@ public class CreateLogin extends HttpServlet{
 
         LoginDao loginDao = new LoginDao();
 
+
+
+
         boolean acesso = loginDao.loginUser(login);
 
         if (acesso) {
             System.out.println("Login bem-sucedido para o usuário: " + email);
-            resp.sendRedirect("/cadastroImovel");
+
+            resp.sendRedirect(req.getContextPath() +"/cadastroImovel");
+
+
         } else {
             System.out.println("Falha no login para o usuário: " + email);
         }
-
-        //req.getRequestDispatcher("Login.html").forward(req,resp);
-
-
 
     }
 

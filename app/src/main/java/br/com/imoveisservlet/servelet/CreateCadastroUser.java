@@ -11,8 +11,24 @@ import java.io.IOException;
 @WebServlet("/cadastrouser")
 public class CreateCadastroUser extends HttpServlet {
 
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        processRequest(req, resp);
+
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("index.html").forward(req, resp);
+
+        processRequest(req, resp);
+    }
+
+
+
+
+    private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String nomeCompleto = req.getParameter("nomeCompleto-cadastro");
         String email = req.getParameter("email-cadastro");
         String cpf = req.getParameter("cpf-cadastro");
@@ -21,9 +37,14 @@ public class CreateCadastroUser extends HttpServlet {
         String repetirSenha = req.getParameter("repetirSenha-cadastro");
 
         CadastroUser cadastroUser = new CadastroUser(nomeCompleto, cpf, telefone, email, senha, repetirSenha);
-        new CadastroUserDao().createCadastroUser(cadastroUser);
 
-        req.getRequestDispatcher("index.html").forward(req,resp);
+        CadastroUserDao cadastroUserDao = new CadastroUserDao();
+        cadastroUserDao.createCadastroUser(cadastroUser);
+
+        resp.sendRedirect( "/login");
+
+
+
 
     }
 

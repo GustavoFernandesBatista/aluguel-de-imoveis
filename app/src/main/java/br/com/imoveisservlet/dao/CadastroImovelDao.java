@@ -17,9 +17,8 @@ public class CadastroImovelDao {
 
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
 
-            System.out.println("success in database connection");
 
-            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
            preparedStatement.setString(1 ,imovel.getTituloImovel());
             preparedStatement.setString(2 ,imovel.getEndereco());
@@ -34,7 +33,11 @@ public class CadastroImovelDao {
 
             preparedStatement.execute();
 
-            System.out.println("success in insert imovel");
+
+            ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+
+
+            System.out.println("success em inserir o imovel");
 
             connection.close();
 

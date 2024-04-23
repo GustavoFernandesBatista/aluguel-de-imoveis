@@ -37,7 +37,7 @@ public class CadastroUserDao {
             System.out.println("Erro no processamento" + e.getMessage());
         }
     }
-
+/*
         public List<CadastroUser> findAllCadastro(){
             String SQL = "SELECT * FROM CADASTROUSER";
 
@@ -76,9 +76,9 @@ public class CadastroUserDao {
                 return Collections.emptyList();
             }
         }
-
+/*
     public void deleteCadastroById(String cadastroId){
-        String SQL = "DELETE CADASTRO WHERE ID + ?";
+        String SQL = "DELETE CADASTRO WHERE ID = ?";
 
         try{
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
@@ -101,6 +101,6 @@ public class CadastroUserDao {
 
         }
     }
-
+*/
 }
 
