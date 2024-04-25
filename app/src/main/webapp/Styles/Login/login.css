@@ -1,0 +1,48 @@
+body{
+    background-color: #dab348;
+    margin: 0;
+    padding: 0;
+}
+
+
+header{
+    display: flex;
+    justify-content: flex-end;
+}
+
+header img {
+    width: 7vh;
+    margin: 2px;
+}
+
+.containerCadastroImovel{
+    display: flex;
+    justify-content: center;
+}
+
+.formCadastroImovel{
+    width: 50%;
+    text-align: center;
+    border: 5px solid #eeeeee;
+    border-radius: 5px;
+}
+
+.formCadastroImovel #numero-quartos,
+.formCadastroImovel #numero-banheiros,
+.formCadastroImovel #numero-vagas,
+.formCadastroImovel #valor {
+    height: 15vh; /* Adjust this value if you prefer a different height for number inputs */
+    width: 25vh;  /* This is the change to make number input fields smaller */
+}
+
+label{
+    display: block;
+    margin-top: 10px;
+}
+
+input, button {
+    height: 5vh;
+    width: 40vh; /* Adjust this value if you prefer a different width for other inputs */
+}
+
+/* Specific styling for number input fields within the div */

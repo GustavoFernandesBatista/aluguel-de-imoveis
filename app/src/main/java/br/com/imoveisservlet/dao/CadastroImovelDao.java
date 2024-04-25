@@ -18,23 +18,20 @@ public class CadastroImovelDao {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
 
 
-            PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
-           preparedStatement.setString(1 ,imovel.getTituloImovel());
+            preparedStatement.setString(1 ,imovel.getTituloImovel());
             preparedStatement.setString(2 ,imovel.getEndereco());
             preparedStatement.setString(3 ,imovel.getNumQuartos());
             preparedStatement.setString(4,imovel.getNumBanheiro());
             preparedStatement.setString(5 ,imovel.getNumVagas());
             preparedStatement.setString(6 ,imovel.getValorNoite());
-
             preparedStatement.setString(7 ,imovel.getImagens());
             preparedStatement.setString(8,imovel.getObs());
 
 
             preparedStatement.execute();
 
-
-            ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
 
 
             System.out.println("success em inserir o imovel");
@@ -48,6 +45,7 @@ public class CadastroImovelDao {
         }
     }
 
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------
     public List<CadastroImovel> ListadeImoveis() {
         String SQL = "SELECT * FROM  CADASTRO_IMOVEL";
 
@@ -96,6 +94,7 @@ public class CadastroImovelDao {
             }
         }
 
+        //-----------------------------------------------------------------------------------------------------------------------------------------------------------------
         public void deleteCadastroImovelById(String CadastroImovelId ){
             String SQL = "DELETE FROM CADASTRO_IMOVEL WHERE ID_CADASTRO_IMOVEL + ?";
 

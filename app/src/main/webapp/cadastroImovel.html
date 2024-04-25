@@ -3,62 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastro Imovel</title>
+    <link rel="stylesheet" href="./Styles/Cadastro_Imovel/cadastroImovel.css">
+    <link rel="stylesheet" href="./Styles/footer.css">
 </head>
 <body>
 
-<h2>Criar Cadastro</h2>
+<header>
+    <img src="./Imagens/exit.png">
+</header>
 
 
-<form action= "/cadastroImovel" method= "post">
-
-    <label>Titulo Imovel</label>
-    <input type="Text" name="titulo-imovel" id="titulo-imovel">
-
-    <br>
-
-    <label>Endereco</label>
-    <input type="Text" name="endereco" id="endereco">
-
-    <br>
-
-    <label>Numero de Quartos</label>
-    <input type="number" name="numero-quartos" id="numero-quartos">
+<div class="containerCadastroImovel">
 
 
-    <br>
+    <div class="formCadastroImovel">
+
+        <h2>Criar Cadastro</h2>
 
 
-    <label>Numero de Banheiros</label>
-    <input type="number" name="numero-banheiros" id="numero-banheiros">
+        <form action= "/cadastroImovel" method= "post">
 
-    <br>
+            <label>Titulo Imovel</label>
+            <input type="Text" name="titulo-imovel" id="titulo-imovel">
 
+            <br>
 
-    <label>Numero de Vagas</label>
-    <input type="number" name="numero-vagas" id="numero-vagas">
+            <label>Endereco</label>
+            <input type="Text" name="endereco" id="endereco">
 
+            <br>
 
-    <br>
-
-    <label>Valor por noite</label>
-    <input type="number" name="valor" id="valor">
-
-<br>
-
-    <label>Imagens</label>
-    <input type="text" name="imagens" id="imagens">
-
-    <br>
-
-    <label>Observacoes</label>
-    <input type="text" name="obs" id="obs">
-
-    <button type="submit">Register</button>
+            <label id="quartos">Numero de Quartos</label>
+            <input type="number" name="numero-quartos" id="numero-quartos">
 
 
+            <br>
 
 
-</form>
+            <label id="banheiros">Numero de Banheiros</label>
+            <input type="number" name="numero-banheiros" id="numero-banheiros">
+
+            <br>
+
+
+            <label id="vagas">Numero de Vagas</label>
+            <input type="number" name="numero-vagas" id="numero-vagas">
+
+
+            <br>
+
+            <label id="valor-por-noite">Valor por noite</label>
+            <input type="number" name="valor" id="valor">
+
+            <br>
+
+            <label>Imagens</label>
+            <input type="text" name="imagens" id="imagens">
+
+            <br>
+
+            <label>Observacoes</label>
+            <input type="text" name="obs" id="obs">
+
+            <button type="submit">Register</button>
+
+            <footer class="footer">
+                <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=806419&height=130&section=header&fontColor=fff&animation=twinkling&fontAlignY=35"/>
+                <div class="container-footer">
+                    <div class="row">
+
+                        <div class="footer-col">
+                            <h4>Alternative menu</h4>
+                            <p><a href="#home">Home</a></p>
+                            <p><a href="#start">Information</a></p>
+                            <p><a href="#tec">Technologies</a></p>
+                            <p><a href="#cert">Certificates</a></p>
+                        </div>
+
+                        <div class="footer-col">
+                            <h4>Contact</h4>
+                            <p><a class="no-click" href="#">(11) 9 9423-7418</a></p>
+                            <p><a class="no-click" href="#">mthalvarez2005@gmail.com</a></p>
+                        </div>
+
+                        <div class="footer-col">
+                            <h4>Social networks</h4>
+                            <div class="social-links">
+                                <a href="https://github.com/MatheusAlvarez" target="-blank"><i class="fab fa-github"></i></a>
+                                <a href="https://br.linkedin.com/in/matheus-maia-alvarez-" target="-blank"><i class="fab fa-linkedin"></i></a>
+                                <a href="https://www.instagram.com/" target="-blank"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=806419&height=120&section=footer"/>
+            </footer>
+
+
+
+        </form>
+
+    </div>
+</div>
 
 </body>
 </html>

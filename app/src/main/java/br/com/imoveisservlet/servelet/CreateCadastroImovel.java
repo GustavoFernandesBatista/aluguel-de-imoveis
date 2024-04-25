@@ -37,7 +37,7 @@ public class CreateCadastroImovel extends HttpServlet {
         String imagens = req.getParameter("imagens");
         String obs = req.getParameter("obs");
 
-        CadastroImovel cadastroImovel = new CadastroImovel(titulo_imovel, endereco,num_quartos,num_banheiro,num_vagas,valor_noite,imagens,obs);
+        CadastroImovel cadastroImovel = new CadastroImovel(titulo_imovel, endereco,num_quartos,num_banheiro,num_vagas,valor_noite,imagens,obs, obs);
         CadastroImovelDao cadastroImovelDao = new CadastroImovelDao();
         cadastroImovelDao.createImovel(cadastroImovel);
 

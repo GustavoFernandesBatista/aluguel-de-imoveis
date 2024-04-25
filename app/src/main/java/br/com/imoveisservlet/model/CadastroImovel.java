@@ -11,16 +11,19 @@ public class CadastroImovel {
     private String imagens;
     private String obs;
 
-    public CadastroImovel(String obs, String imagens, String valorNoite, String numVagas, String numBanheiro, String numQuartos, String endereco, String tituloImovel) {
-        this.obs = obs;
-        this.imagens = imagens;
-        this.valorNoite = valorNoite;
-        this.numVagas = numVagas;
-        this.numBanheiro = numBanheiro;
-        this.numQuartos = numQuartos;
-        this.endereco = endereco;
+    public CadastroImovel(String tituloImovel, String endereco, String numQuartos, String numBanheiro, String numVagas , String valorNoite, String imagens, String obs, String s) {
         this.tituloImovel = tituloImovel;
+        this.endereco = endereco;
+        this.numQuartos = numQuartos;
+        this.numBanheiro = numBanheiro;
+        this.numVagas = numVagas;
+        this.valorNoite = valorNoite;
+        this.imagens = imagens;
+        this.obs = obs;
     }
+/*
+
+                                                                             CONSTRUTOR COM ERRO
 
     public CadastroImovel(String obs, String imagens, String valorNoite, String numVagas, String numBanheiro, String numQuartos, String endereco, String tituloImovel, String idCadastroImovel) {
         this.obs = obs;
@@ -33,7 +36,7 @@ public class CadastroImovel {
         this.tituloImovel = tituloImovel;
         IdCadastroImovel = idCadastroImovel;
     }
-
+*/
     public String getTituloImovel() {
         return tituloImovel;
     }

@@ -1,0 +1,44 @@
+body{
+    background-color: #dab348;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    display: flex;
+    justify-content: flex-end;
+}
+
+header img {
+    width: 7vh;
+    margin: 2px;
+}
+
+.containerCadastroImovel{
+    display: flex;
+    justify-content: center;
+}
+
+.formCadastroImovel{
+    width: 50%;
+    text-align: center;
+    border: 5px solid #eeeeee;
+    border-radius: 5px;
+}
+
+label{
+    display: block;
+    margin-top: 10px;
+}
+
+input, button{
+    height: 5vh;
+    width: 40vh;
+}
+
+button{
+    display: block;
+        margin-top: 28px;
+        margin-left: auto;
+        margin-right: auto;
+}
