@@ -31,7 +31,7 @@ public class CadastroImovel {
         this.numQuartos = numQuartos;
         this.endereco = endereco;
         this.tituloImovel = tituloImovel;
-        IdCadastroImovel = idCadastroImovel;
+        this.IdCadastroImovel = idCadastroImovel;
     }
 
     public String getTituloImovel() {

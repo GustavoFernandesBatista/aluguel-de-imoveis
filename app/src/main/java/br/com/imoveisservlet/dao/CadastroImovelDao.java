@@ -93,8 +93,8 @@ public class CadastroImovelDao {
             }
         }
 
-        public void deleteCadastroImovelById(String CadastroImovelId ){
-            String SQL = "DELETE FROM CADASTRO_IMOVEL WHERE ID_CADASTRO_IMOVEL + ?";
+        public void deleteCadastroImovelById(String CadastroImovel ){
+            String SQL = "DELETE FROM CADASTRO_IMOVEL WHERE ID_CADASTRO_IMOVEL = ?";
 
             try {
                 Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
@@ -102,10 +102,10 @@ public class CadastroImovelDao {
                 System.out.println("success in database connection");
 
                 PreparedStatement preparedStatement = connection.prepareStatement(SQL);
-                preparedStatement.setString(1, CadastroImovelId);
+                preparedStatement.setString(1, CadastroImovel);
                 preparedStatement.execute();
 
-                System.out.println("SUCESSO EM DELETAR CADASTRO IMOVEL COM ID " + CadastroImovelId);
+                System.out.println("SUCESSO EM DELETAR CADASTRO IMOVEL COM ID " + CadastroImovel);
 
                 connection.close();
 
