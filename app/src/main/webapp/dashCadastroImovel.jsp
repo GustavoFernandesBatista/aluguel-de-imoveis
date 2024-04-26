@@ -42,10 +42,12 @@
                 <td>${cadastro.valorNoite}</td>
                 <td>${cadastro.imagens}</td>
                 <td>${cadastro.obs}</td>
+                <td>
                  <form action="/delete-cadastroImovel" method="post">
                                     <input type="hidden" id="id" name="id" value="${cadastro.idCadastroImovel}">
                                     <button type="submit">Delete</button>
-                                </form>
+                 </form>
+                </td>
             </tr>
         </c:forEach>
     </table>

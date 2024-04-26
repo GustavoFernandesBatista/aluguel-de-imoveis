@@ -12,16 +12,10 @@ import java.io.IOException;
 @WebServlet("/cadastroImovel")
 
 public class CreateCadastroImovel extends HttpServlet {
+
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         processRequest(req, resp);
     }
-
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        processRequest(req, resp);
-    }
-
-
 
 
     private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -38,7 +32,7 @@ public class CreateCadastroImovel extends HttpServlet {
         CadastroImovelDao cadastroImovelDao = new CadastroImovelDao();
         cadastroImovelDao.createImovel(cadastroImovel);
 
-        req.getRequestDispatcher("Cadastro_Imovel.html").forward(req, resp);
+        resp.sendRedirect("/painel-imovel");
 
 
 

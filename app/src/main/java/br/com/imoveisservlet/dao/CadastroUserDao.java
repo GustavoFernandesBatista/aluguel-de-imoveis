@@ -11,7 +11,7 @@ public class CadastroUserDao {
     public void createCadastroUser(CadastroUser cadastroUser){
 
 
-        String SQL = "INSERT INTO CADASTRO ( COMPLETE_NAME, EMAIL, CPF, TELEFONE, SENHA, REPETIR_SENHA) VALUES (?,?,?,?,?,?)";
+        String SQL = "INSERT INTO CADASTRO ( NOME_COMPLETO, EMAIL, CPF, TELEFONE, SENHA, REPETE_SENHA) VALUES (?,?,?,?,?,?)";
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
