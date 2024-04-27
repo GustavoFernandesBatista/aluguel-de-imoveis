@@ -96,7 +96,7 @@ public class CadastroImovelDao {
 
         //-----------------------------------------------------------------------------------------------------------------------------------------------------------------
         public void deleteCadastroImovelById(String CadastroImovelId ){
-            String SQL = "DELETE FROM CADASTRO_IMOVEL WHERE ID_CADASTRO_IMOVEL + ?";
+            String SQL = "DELETE FROM CADASTRO_IMOVEL WHERE ID_CADASTRO_IMOVEL = ?";
 
             try {
                 Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");

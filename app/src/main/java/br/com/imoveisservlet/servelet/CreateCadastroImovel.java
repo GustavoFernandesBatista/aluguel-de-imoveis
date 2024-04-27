@@ -13,21 +13,6 @@ import java.io.IOException;
 
 public class CreateCadastroImovel extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        processRequest(req, resp);
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("cadastroImovel.html").forward(req, resp);
-
-        processRequest(req, resp);
-    }
-
-
-
-
-    private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String titulo_imovel= req.getParameter("titulo-imovel");
         String endereco = req.getParameter("endereco");
         String num_quartos = (req.getParameter("numero-quartos"));
@@ -41,9 +26,16 @@ public class CreateCadastroImovel extends HttpServlet {
         CadastroImovelDao cadastroImovelDao = new CadastroImovelDao();
         cadastroImovelDao.createImovel(cadastroImovel);
 
-
-
-    //resp.sendRedirect("/painel-imovel");
+        resp.sendRedirect("/painel-imovel");
 
     }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("cadastroImovel.html").forward(req, resp);
+
+    }
+
+
+
 }

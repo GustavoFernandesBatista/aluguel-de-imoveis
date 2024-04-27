@@ -10,12 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet
+@WebServlet("/delete-cadastroImovel")
 public class DeleteCadastroImvovel extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String CadastroImovelId = req.getParameter("ID_CADASTRO_IMOVEL");
+        String CadastroImovelId = req.getParameter("id");
 
         new CadastroImovelDao().deleteCadastroImovelById(CadastroImovelId);
 
