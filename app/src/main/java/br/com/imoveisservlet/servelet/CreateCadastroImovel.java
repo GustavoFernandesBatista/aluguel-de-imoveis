@@ -17,34 +17,34 @@ public class CreateCadastroImovel extends HttpServlet {
         String idCadastroImovel = req.getParameter("idCadastroImovel");
         String titulo_imovel= req.getParameter("titulo-imovel");
         String endereco = req.getParameter("endereco");
-        String num_quartos = (req.getParameter("numero-quartos"));
-        String num_banheiro = ((req.getParameter("numero-banheiros")));
-        String num_vagas = (req.getParameter("numero-vagas"));
-        String valor_noite = (req.getParameter("valor"));
+        String num_quartos = req.getParameter("numero-quartos");
+        String num_banheiro = req.getParameter("numero-banheiros");
+        String num_vagas = req.getParameter("numero-vagas");
+        String valor_noite = req.getParameter("valor");
         String imagens = req.getParameter("imagens");
         String obs = req.getParameter("obs");
 
         CadastroImovelDao cadastroImovelDao = new CadastroImovelDao();
         CadastroImovel cadastroImovel = new CadastroImovel(idCadastroImovel,titulo_imovel, endereco,num_quartos,num_banheiro,num_vagas,valor_noite,imagens,obs);
 
-        cadastroImovelDao.createImovel(cadastroImovel);
 
+        if (idCadastroImovel != null && !idCadastroImovel.isBlank()) {
 
-        if (idCadastroImovel != null && !idCadastroImovel.isBlank()){
-            cadastroImovelDao.createImovel(cadastroImovel);
-        }else{
             cadastroImovelDao.updateCadastroImovel(cadastroImovel);
+        } else {
+
+            cadastroImovelDao.createImovel(cadastroImovel);
         }
 
         resp.sendRedirect("/painel-imovel");
-
     }
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("cadastroImovel.jsp").forward(req, resp);
 
     }
+
+
 
 
 

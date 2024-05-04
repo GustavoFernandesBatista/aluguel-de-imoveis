@@ -21,49 +21,51 @@
         <h2>Criar Cadastro</h2>
 
 
-        <form action= "/cadastroImovel" method= "post">
+        <form action="/cadastroImovel" method="post">
 
             <label>Titulo Imovel</label>
-            <input type="Text" name="titulo-imovel" id="titulo-imovel">
+            <input type="text" name="titulo-imovel" id="titulo-imovel" value="${param.name}">
+            <input type="hidden" id="idCadastroImovel" name="idCadastroImovel" value="${param.idCadastroImovel}">
 
             <br>
 
             <label>Endereco</label>
-            <input type="Text" name="endereco" id="endereco">
-
+            <input type="text" name="endereco" id="endereco" value="${param.endereco}">
+            <input type="hidden" id="idCadastroImovel" name="idCadastroImovel" value="${param.idCadastroImovel}">
             <br>
 
             <label id="quartos">Numero de Quartos</label>
-            <input type="number" name="numero-quartos" id="numero-quartos">
-
+            <input type="text" name="numero-quartos" id="numero-quartos" value="${param.numquartos}">
+            <input type="hidden" id="idCadastroImovel" name="idCadastroImovel" value="${param.idCadastroImovel}">
 
             <br>
 
 
             <label id="banheiros">Numero de Banheiros</label>
-            <input type="number" name="numero-banheiros" id="numero-banheiros">
-
+            <input type="text" name="numero-banheiros" id="numero-banheiros" value="${param.numbanheiro}">
+            <input type="hidden" id="idCadastroImovel" name="idCadastroImovel" value="${param.idCadastroImovel}">
             <br>
 
 
             <label id="vagas">Numero de Vagas</label>
-            <input type="number" name="numero-vagas" id="numero-vagas">
-
+            <input type="text" name="numero-vagas" id="numero-vagas" value="${param.numvagas}">
+            <input type="hidden" id="idCadastroImovel" name="idCadastroImovel" value="${param.idCadastroImovel}">
 
             <br>
 
             <label id="valor-por-noite">Valor por noite</label>
-            <input type="number" name="valor" id="valor">
-
+            <input type="number" name="valor" id="valor" value="${param.valornoite}">
+            <input type="hidden" id="idCadastroImovel" name="idCadastroImovel" value="${param.idCadastroImovel}">
             <br>
 
             <label>Imagens</label>
-            <input type="text" name="imagens" id="imagens">
-
+            <input type="text" name="imagens" id="imagens" value="${param.img}">
+            <input type="hidden" id="idCadastroImovel" name="idCadastroImovel" value="${param.idCadastroImovel}">
             <br>
 
             <label>Observacoes</label>
-            <input type="text" name="obs" id="obs">
+            <input type="text" name="obs" id="obs" value="${param.obs}">
+            <input type="hidden" id="idCadastroImovel" name="idCadastroImovel" value="${param.idCadastroImovel}">
 
             <button type="submit">Register</button>
 
@@ -92,22 +94,9 @@
                 </div>
                 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=806419&height=120&section=footer"/>
             </footer>
-
-
-
         </form>
-
     </div>
 </div>
-<form action="//cadastroImovel" method="post">
-
-    <label>Nome casa</label>
-    <input type="text" name="titulo-imovel" id="titulo-imovel" value="${param.name}">
-    <input type="hidden" id="idCadastroImovel" name="idCadastroImovel" value="${param.id}">
-
-    <button type="submit">Save</button>
-
-</form>
 
 </body>
 </html>

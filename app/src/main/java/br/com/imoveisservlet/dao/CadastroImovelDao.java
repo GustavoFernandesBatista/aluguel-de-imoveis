@@ -117,30 +117,33 @@ public class CadastroImovelDao {
             }
         }
 
-        public void updateCadastroImovel(CadastroImovel cad){
-            String SQL = "UPDATE TITULO_IMOVEL = ? WHERE ID_CADASTRO_IMOVEL = ? ";
+    public void updateCadastroImovel(CadastroImovel cad){
+        String SQL = "UPDATE CADASTRO_IMOVEL SET TITULO_IMOVEL = ?, ENDERECO = ?, NUM_QUARTOS = ?, NUM_BANHEIROS = ?, NUM_VAGAS = ?, VALOR_NOITE = ?, IMAGENS = ?, OBS = ? WHERE ID_CADASTRO_IMOVEL = ?";
 
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+            System.out.println("Sucesso na conexão com o banco de dados");
 
-            try {
-                Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            preparedStatement.setString(1, cad.getTituloImovel());
+            preparedStatement.setString(2, cad.getEndereco());
+            preparedStatement.setString(3, cad.getNumQuartos());
+            preparedStatement.setString(4, cad.getNumBanheiro());
+            preparedStatement.setString(5, cad.getNumVagas());
+            preparedStatement.setString(6, cad.getValorNoite());
+            preparedStatement.setString(7, cad.getImagens());
+            preparedStatement.setString(8, cad.getObs());
+            preparedStatement.setString(9, cad.getIdCadastroImovel());
 
-                System.out.println("success in database connection");
+            int rowsUpdated = preparedStatement.executeUpdate();
+            System.out.println(rowsUpdated + " linha(s) atualizada(s)");
 
-                PreparedStatement preparedStatement = connection.prepareStatement(SQL);
-
-                preparedStatement.setString(1, cad.getTituloImovel());
-                preparedStatement.setString(2, cad.getIdCadastroImovel());
-
-                System.out.println("Succeso em fazer update");
-
-                connection.close();
-
-
-        }catch(Exception e){
-                System.out.println("Erro ao conectar no banco de dados ");
-                System.out.println("Error" + e.getMessage());
-            }
+            connection.close();
+        } catch (Exception e) {
+            System.out.println("Erro ao conectar no banco de dados ");
+            System.out.println("Erro: " + e.getMessage());
         }
+    }
 
 
     }
