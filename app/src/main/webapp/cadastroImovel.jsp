@@ -99,6 +99,15 @@
 
     </div>
 </div>
+<form action="//cadastroImovel" method="post">
+
+    <label>Nome casa</label>
+    <input type="text" name="titulo-imovel" id="titulo-imovel" value="${param.name}">
+    <input type="hidden" id="idCadastroImovel" name="idCadastroImovel" value="${param.id}">
+
+    <button type="submit">Save</button>
+
+</form>
 
 </body>
 </html>

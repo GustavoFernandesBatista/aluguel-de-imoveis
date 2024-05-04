@@ -12,7 +12,9 @@ import java.io.IOException;
 @WebServlet("/cadastroImovel")
 
 public class CreateCadastroImovel extends HttpServlet {
+
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String idCadastroImovel = req.getParameter("idCadastroImovel");
         String titulo_imovel= req.getParameter("titulo-imovel");
         String endereco = req.getParameter("endereco");
         String num_quartos = (req.getParameter("numero-quartos"));
@@ -22,9 +24,17 @@ public class CreateCadastroImovel extends HttpServlet {
         String imagens = req.getParameter("imagens");
         String obs = req.getParameter("obs");
 
-        CadastroImovel cadastroImovel = new CadastroImovel(titulo_imovel, endereco,num_quartos,num_banheiro,num_vagas,valor_noite,imagens,obs, obs);
         CadastroImovelDao cadastroImovelDao = new CadastroImovelDao();
+        CadastroImovel cadastroImovel = new CadastroImovel(idCadastroImovel,titulo_imovel, endereco,num_quartos,num_banheiro,num_vagas,valor_noite,imagens,obs);
+
         cadastroImovelDao.createImovel(cadastroImovel);
+
+
+        if (idCadastroImovel != null && !idCadastroImovel.isBlank()){
+            cadastroImovelDao.createImovel(cadastroImovel);
+        }else{
+            cadastroImovelDao.updateCadastroImovel(cadastroImovel);
+        }
 
         resp.sendRedirect("/painel-imovel");
 
@@ -32,7 +42,7 @@ public class CreateCadastroImovel extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("cadastroImovel.html").forward(req, resp);
+        req.getRequestDispatcher("cadastroImovel.jsp").forward(req, resp);
 
     }
 

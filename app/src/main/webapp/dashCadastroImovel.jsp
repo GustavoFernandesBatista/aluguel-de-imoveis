@@ -11,6 +11,7 @@
     <table>
         <tr>
 
+            <th>Id</th>
 
             <th>Nome do Imovel</th>
 
@@ -44,7 +45,11 @@
                                 <form action="/delete-cadastroImovel" method="post">
                                     <input type="hidden" id="id" name="id" value="${cadastro.idCadastroImovel}">
                                     <button type="submit">Delete</button>
+                                    <span>|</span>
+                                    <a href="cadastroImovel.jsp?id=${cadastro.idCadastroImovel}&name=${cadastro.tituloImovel}">Update</a>
                                 </form>
+
+
                             </td>
             </tr>
         </c:forEach>

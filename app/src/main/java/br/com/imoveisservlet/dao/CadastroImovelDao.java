@@ -117,6 +117,31 @@ public class CadastroImovelDao {
             }
         }
 
+        public void updateCadastroImovel(CadastroImovel cad){
+            String SQL = "UPDATE TITULO_IMOVEL = ? WHERE ID_CADASTRO_IMOVEL = ? ";
+
+
+            try {
+                Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+
+                System.out.println("success in database connection");
+
+                PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+                preparedStatement.setString(1, cad.getTituloImovel());
+                preparedStatement.setString(2, cad.getIdCadastroImovel());
+
+                System.out.println("Succeso em fazer update");
+
+                connection.close();
+
+
+        }catch(Exception e){
+                System.out.println("Erro ao conectar no banco de dados ");
+                System.out.println("Error" + e.getMessage());
+            }
+        }
+
 
     }
 
