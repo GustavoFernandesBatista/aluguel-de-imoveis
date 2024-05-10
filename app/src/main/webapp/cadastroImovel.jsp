@@ -9,7 +9,7 @@
 <body>
 
 <header>
-    <img src="./Imagens/exit.png">
+    <a href="/home"><img src="./Imagens/exit.png"></a>
 </header>
 
 
