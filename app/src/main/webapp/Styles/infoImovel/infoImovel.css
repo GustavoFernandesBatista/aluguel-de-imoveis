@@ -1,0 +1,25 @@
+header{
+    display: flex;
+    justify-content: flex-end;
+    background-color: #dab348;
+}
+
+body{
+    background-color: #FFD18B;
+    margin: 0;
+    padding: 0;
+}
+
+header img {
+    width: 7vh;
+    margin: 2px;
+}
+
+.containerIMG{
+    display: flex;
+    justify-content: center;
+}
+
+.containerTEXT{
+    justify-content: center;
+}
