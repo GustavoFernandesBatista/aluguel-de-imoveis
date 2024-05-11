@@ -1,7 +1,26 @@
-header{
+header {
     display: flex;
-    justify-content: flex-end;
-    background-color: #dab348;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-brand {
+    margin-right: 20px;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.nav-item {
+    margin-right: 20px;
+}
+
+.special-link {
+    color: red;
+    font-weight: bold;
 }
 
 body{
@@ -9,17 +28,8 @@ body{
     margin: 0;
     padding: 0;
 }
-
-header img {
-    width: 7vh;
-    margin: 2px;
-}
-
 .containerIMG{
     display: flex;
     justify-content: center;
 }
 
-.containerTEXT{
-    justify-content: center;
-}

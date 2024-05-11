@@ -11,6 +11,11 @@ public class CadastroImovel {
     private String imagens;
     private String obs;
 
+
+    public CadastroImovel(){
+
+    }
+
     public CadastroImovel(String tituloImovel, String endereco, String numQuartos, String numBanheiro, String numVagas, String valorNoite, String imagens, String obs) {
         this.tituloImovel = tituloImovel;
         this.endereco = endereco;

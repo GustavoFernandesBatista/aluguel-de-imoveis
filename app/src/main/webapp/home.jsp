@@ -49,15 +49,15 @@
     </nav>
 
     <h1>Grandes Oportunidades</h1>
-    <div class="row justify-content-center"> <!-- Adicionando classe para centralizar horizontalmente -->
+    <div class="row justify-content-center">
         <c:forEach var="imovel" items="${imoveis}" varStatus="loop">
-            <div class="col-md-3 mb-4"> <!-- Dividindo a largura da tela em 4 partes para cada coluna e adicionando margem inferior -->
-                <div class="card" style="width: 15rem;"> <!-- Removendo a classe mb-4 para centralizar verticalmente -->
+            <div class="col-md-3 mb-4">
+                <div class="card" style="width: 15rem;">
                     <img src="./Imagens/praiaArraial.jpg" class="card-img-top" alt="...">
-                    <div class="card-body text-center"> <!-- Adicionando classe text-center para centralizar o texto -->
+                    <div class="card-body text-center">
                         <h5 class="card-title">${imovel.tituloImovel}</h5>
                         <p class="card-text">R$ ${imovel.valorNoite}</p>
-                        <a href="#" class="btn btn-primary">Ver mais...</a>
+                        <a href="/infoImovel?id=${imovel.idCadastroImovel}" class="btn btn-primary">Ver mais...</a>
                     </div>
                 </div>
             </div>
