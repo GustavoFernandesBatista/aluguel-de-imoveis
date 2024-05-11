@@ -19,11 +19,10 @@ public class ListaImovelServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         List<CadastroImovel> cadastro = new CadastroImovelDao().ListadeImoveis();
-
         req.setAttribute("cadastroImov", cadastro);
 
         req.getRequestDispatcher("dashCadastroImovel.jsp").forward(req, resp);
 
-    }
 
+    }
 }

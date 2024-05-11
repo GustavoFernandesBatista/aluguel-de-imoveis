@@ -144,8 +144,47 @@ public class CadastroImovelDao {
             System.out.println("Erro: " + e.getMessage());
         }
     }
+    public CadastroImovel findImovelbyID(String id){
+
+        String SQL = "SELECT * FROM CADASTRO_IMOVEL WHERE ID_CADASTRO_IMOVEL = ?";
 
 
+        try {
+
+
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+            preparedStatement.setString(1, id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+    CadastroImovel imovel = new CadastroImovel();
+            while (resultSet.next()) {
+                String idCadastroImovel = resultSet.getNString("ID_CADASTRO_IMOVEL");
+                String tituloImovel = resultSet.getNString("TITULO_IMOVEL");
+                String endereco = resultSet.getNString("ENDERECO");
+                String numQuartos = resultSet.getNString("NUM_QUARTOS");
+                String numBanheiros = resultSet.getNString("NUM_BANHEIROS");
+                String numVagas = resultSet.getNString("NUM_VAGAS");
+                String valorNoite = resultSet.getNString("VALOR_NOITE");
+                String imagem = resultSet.getNString("IMAGENS");
+                String obs = resultSet.getNString("OBS");
+
+                imovel = new CadastroImovel(idCadastroImovel,tituloImovel, endereco, numQuartos, numBanheiros, numVagas, valorNoite, imagem, obs);
+
+
+
+
+            }
+            connection.close();
+
+            return imovel;
+        }catch (Exception e){
+            System.out.println("Erro ao consultar imovel " + e.getMessage());
+        return null;
+        }
     }
+}
+
 
 

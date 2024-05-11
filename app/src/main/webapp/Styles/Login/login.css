@@ -4,6 +4,11 @@ body{
     padding: 0;
 }
 
+p{
+    background : black
+
+}
+
 
 header{
     display: flex;
@@ -45,5 +50,7 @@ button{
         margin-left: auto;
         margin-right: auto;
 }
+
+
 
 
