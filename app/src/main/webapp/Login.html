@@ -1,69 +1,79 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Styles/Login/login.css">
     <link rel="stylesheet" href="./Styles/footer.css">
+
+    <title>ADIMO - Login</title>
 </head>
 <body>
 
-<header>
-    <a href="/home"><img src="./Imagens/exit.png"></a>
-
-</header>
-
-<div class="containerLogin">
-
-
-    <div class="formLogin">
-
-<form action="login" method="post">
-    <h2>Login</h2>
-
-
-    <label>Email</label>
-    <input type="Text" name="emailLogin" id="emailLogin">
-
-    <br>
-
-    <label>Senha</label>
-    <input type="password" name="senhaLogin" id="senhaLogin">
-
-    <button type="submit">Entrar</button>
-
-
-    <p>Nao possui cadastro?<strong><a href="/cadastrouser">Clique Aqui!</a></strong></p>
-
-    <footer class="footer">
-        <div class="container-footer">
-            <div class="row">
-
-                <div class="footer-col">
-                    <h4>Alternative menu</h4>
-
-                </div>
-
-                <div class="footer-col">
-                    <h4>Contact</h4>
+<div class="container-login">
 
 
 
-                </div>
-
-                <div class="footer-col">
-                    <h4>Social networks</h4>
-                    <div class="social-links">
+    <div class="content-box">
+        <div class="form-box">
+            <h2>RealStateSale</h2>
+            <form action="login" method="post">
+                <div class="input-box">
+                    <span>Email:</span>
+                    <input id="emailLogin" type="Text" class='reste' name="emailLogin"  placeholder="Seu Email" required/>
+                    <div class="mb-3">
 
                     </div>
                 </div>
-            </div>
-        </div>
-    </footer>
-</form>
 
+                <div class="input-box">
+                    <span>Senha:</span>
+                    <input id="senhaLogin" type="password" name="senhaLogin" placeholder="Sua Senha" required/>
+
+                </div>
+
+                <div class="remember">
+                    <label>
+                        <input type="checkbox"/> Lembrar de mim
+                    </label>
+                    <a href="/teste">Esqueceu a senha?</a>
+                </div>
+
+                <div class="input-button">
+                    <Button class="btnEntrar">Entrar</Button>
+                </div>
+
+                <div class="input-box">
+                    <p>Não Tem Uma Conta? <a href="./cadastro.html">Criar</a></p>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
+<footer class="footer">
+    <div class="container-footer">
+        <div class="row">
 
+            <div class="footer-col">
+                <h4>Alternative menu</h4>
+
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact</h4>
+
+
+
+            </div>
+
+            <div class="footer-col">
+                <h4>Social networks</h4>
+                <div class="social-links">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
-</html>
