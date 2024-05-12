@@ -43,3 +43,8 @@ button{
         margin-left: auto;
         margin-right: auto;
 }
+
+    .footer {
+            background-color: #D2A93F;
+            color: white;
+        }

@@ -59,23 +59,23 @@
 
     <h1>Grandes Oportunidades</h1>
     <div class="row justify-content-center">
-        <c:forEach var="imovel" items="${imoveis}" varStatus="loop">
-            <div class="col-md-3 mb-4">
-                <div class="card" style="width: 15rem;">
-                    <img src="./Imagens/praiaArraial.jpg" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">${imovel.tituloImovel}</h5>
-                        <p class="card-text">R$ ${imovel.valorNoite}</p>
-                        <a href="/infoImovel?id=${imovel.idCadastroImovel}" class="btn btn-primary">Ver mais...</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Verifica se é a última coluna da linha ou o último item -->
-            <c:if test="${loop.index % 4 == 3 || loop.last}">
-                </div> <!-- Fecha a linha -->
-                <div class="row justify-content-center"> <!-- Abre uma nova linha centralizada -->
-            </c:if>
-        </c:forEach>
+
+      <c:forEach var="imovel" items="${imoveis}" varStatus="loop">
+          <div class="col-md-3 mb-4">
+              <div class="card" style="width: 15rem;">
+                  <div class="card-body text-center">
+                      <img src="${imovel.imagens}" class="card-img-top" alt="...">
+                      <h5 class="card-title">${imovel.tituloImovel}</h5>
+                      <p class="card-text">R$ ${imovel.valorNoite}</p>
+                      <a href="/infoImovel?id=${imovel.idCadastroImovel}" class="btn btn-primary">Ver mais...</a>
+                  </div>
+              </div>
+          </div>
+          <c:if test="${loop.index % 4 == 3 || loop.last}">
+              <div class="row justify-content-center"> <!-- Abre uma nova linha centralizada -->
+          </c:if>
+      </c:forEach>
+
     </div>
 
 

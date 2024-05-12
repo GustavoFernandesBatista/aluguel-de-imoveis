@@ -35,19 +35,20 @@ public class CreateCadastroImovel extends HttpServlet {
 
 
 
-        String idCadastroImovel = req.getParameter("idCadastroImovel");
-        String titulo_imovel = req.getParameter("titulo-imovel");
-        String endereco = req.getParameter("endereco");
-        String num_quartos = req.getParameter("numero-quartos");
-        String num_banheiro = req.getParameter("numero-banheiros");
-        String num_vagas = req.getParameter("numero-vagas");
-        String valor_noite = req.getParameter("valor");
+        String idCadastroImovel = parameters.get("idCadastroImovel");
+        String titulo_imovel = parameters.get("titulo-imovel");
+        String endereco = parameters.get("endereco");
+        String num_quartos = parameters.get("numero-quartos");
+        String num_banheiro = parameters.get("numero-banheiros");
+        String num_vagas = parameters.get("numero-vagas");
+        String valor_noite = parameters.get("valor");
         String imagens = parameters.get("imagens");
-
-        String obs = req.getParameter("obs");
+        String obs = parameters.get("obs");
+        String email = parameters.get("email-contato");
+        String telefone = parameters.get("telefone-contato");
 
         CadastroImovelDao cadastroImovelDao = new CadastroImovelDao();
-        CadastroImovel cadastroImovel = new CadastroImovel(idCadastroImovel, titulo_imovel, endereco, num_quartos, num_banheiro, num_vagas, valor_noite, imagens, obs);
+        CadastroImovel cadastroImovel = new CadastroImovel(idCadastroImovel, titulo_imovel, endereco, num_quartos, num_banheiro, num_vagas, valor_noite, imagens, obs,email,telefone);
 
 
         if (idCadastroImovel != null && !idCadastroImovel.isBlank()) {
@@ -67,29 +68,24 @@ public class CreateCadastroImovel extends HttpServlet {
 
     }
 
-    private Map<String,String> uploadImage(HttpServletRequest request){
-
+    private Map<String, String> uploadImage(HttpServletRequest request) {
         HashMap<String, String> parameters = new HashMap<>();
 
-        if (isMultipartContent(request)){
+        try {
+            DiskFileItemFactory diskFileItemFactory = new DiskFileItemFactory();
+            List<FileItem> fileItemList = new ServletFileUpload(diskFileItemFactory).parseRequest(request);
 
-
-            try{
-                DiskFileItemFactory diskFileItemFactory = new DiskFileItemFactory();
-
-                List<FileItem> fileItemList = new ServletFileUpload(diskFileItemFactory).parseRequest(request);
-
-                for (FileItem fileI : fileItemList){
-                    checkFieldType(fileI, parameters);
+            for (FileItem fileItem : fileItemList) {
+                if (fileItem.isFormField()) {
+                    parameters.put(fileItem.getFieldName(), fileItem.getString());
+                } else {
+                    String fileName = processUploadedFile(fileItem);
+                    parameters.put("imagens", fileName);
                 }
-
-
-            } catch (Exception e){
-                parameters.put("image","Imagens/logo.png");
-
             }
-            return parameters;
-
+        } catch (Exception e) {
+            e.printStackTrace(); // Adicione o tratamento de exceção apropriado
+            parameters.put("imagens", "Imagens/logo.png");
         }
 
         return parameters;

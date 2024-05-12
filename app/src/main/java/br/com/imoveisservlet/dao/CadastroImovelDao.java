@@ -11,7 +11,7 @@ public class CadastroImovelDao {
 
     public void createImovel(CadastroImovel imovel) {
 
-        String SQL = "INSERT INTO CADASTRO_IMOVEL(TITULO_IMOVEL, ENDERECO,NUM_QUARTOS, NUM_BANHEIROS, NUM_VAGAS, VALOR_NOITE, IMAGENS, OBS ) VALUES (?,?,?,?,?,?,?,?)";
+        String SQL = "INSERT INTO CADASTRO_IMOVEL(TITULO_IMOVEL, ENDERECO,NUM_QUARTOS, NUM_BANHEIROS, NUM_VAGAS, VALOR_NOITE, IMAGENS, OBS, email, telefone ) VALUES (?,?,?,?,?,?,?,?,?,?)";
 
         try {
 
@@ -28,7 +28,8 @@ public class CadastroImovelDao {
             preparedStatement.setString(6 ,imovel.getValorNoite());
             preparedStatement.setString(7 ,imovel.getImagens());
             preparedStatement.setString(8,imovel.getObs());
-
+            preparedStatement.setString(9,imovel.getEmail());
+            preparedStatement.setString(10,imovel.getTelefone());
 
             preparedStatement.execute();
 
@@ -71,8 +72,10 @@ public class CadastroImovelDao {
                 String valorNoite = resultSet.getNString("VALOR_NOITE");
                 String imagem = resultSet.getNString("IMAGENS");
                 String obs = resultSet.getNString("OBS");
+                String email = resultSet.getNString("email");
+                String telefone = resultSet.getNString("telefone");
 
-                CadastroImovel i = new CadastroImovel(idCadastroImovel,tituloImovel, endereco, numQuartos, numBanheiros, numVagas, valorNoite, imagem, obs);
+                CadastroImovel i = new CadastroImovel(idCadastroImovel,tituloImovel, endereco, numQuartos, numBanheiros, numVagas, valorNoite, imagem, obs, email,telefone);
 
                 imovel.add(i);
 
@@ -118,7 +121,7 @@ public class CadastroImovelDao {
         }
 
     public void updateCadastroImovel(CadastroImovel cad){
-        String SQL = "UPDATE CADASTRO_IMOVEL SET TITULO_IMOVEL = ?, ENDERECO = ?, NUM_QUARTOS = ?, NUM_BANHEIROS = ?, NUM_VAGAS = ?, VALOR_NOITE = ?, IMAGENS = ?, OBS = ? WHERE ID_CADASTRO_IMOVEL = ?";
+        String SQL = "UPDATE CADASTRO_IMOVEL SET TITULO_IMOVEL = ?, ENDERECO = ?, NUM_QUARTOS = ?, NUM_BANHEIROS = ?, NUM_VAGAS = ?, VALOR_NOITE = ?, IMAGENS = ?, OBS = ?, email = ? , telefone = ? WHERE ID_CADASTRO_IMOVEL = ?";
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
@@ -133,7 +136,9 @@ public class CadastroImovelDao {
             preparedStatement.setString(6, cad.getValorNoite());
             preparedStatement.setString(7, cad.getImagens());
             preparedStatement.setString(8, cad.getObs());
-            preparedStatement.setString(9, cad.getIdCadastroImovel());
+            preparedStatement.setString(9, cad.getEmail());
+            preparedStatement.setString(10, cad.getTelefone());
+            preparedStatement.setString(11, cad.getIdCadastroImovel());
 
             int rowsUpdated = preparedStatement.executeUpdate();
             System.out.println(rowsUpdated + " linha(s) atualizada(s)");
@@ -169,8 +174,10 @@ public class CadastroImovelDao {
                 String valorNoite = resultSet.getNString("VALOR_NOITE");
                 String imagem = resultSet.getNString("IMAGENS");
                 String obs = resultSet.getNString("OBS");
+                String email = resultSet.getNString("email");
+                String telefone = resultSet.getNString("telefone");
 
-                imovel = new CadastroImovel(idCadastroImovel,tituloImovel, endereco, numQuartos, numBanheiros, numVagas, valorNoite, imagem, obs);
+                imovel = new CadastroImovel(idCadastroImovel,tituloImovel, endereco, numQuartos, numBanheiros, numVagas, valorNoite, imagem, obs,email,telefone);
 
 
 
