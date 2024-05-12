@@ -13,7 +13,7 @@
 
             <h2>Ficha Cadastral</h2>
 
-            <form action = "cadastroImovel" method = "post">
+            <form action = "cadastroImovel" method = "post" enctype = "multipart/form-data">
 
                 <label>Titulo Imovel</label>
                 <input type="text" name="titulo-imovel" id="titulo-imovel" value="${param.name}">
@@ -50,8 +50,8 @@
 
 
 
-                <label>Imagens</label>
-                <input type="text" name="imagens" id="imagens" value="${param.img}">
+                <label>Imagem</label>
+                <input type="file" name="imagens" id="imagens" value="${param.img}">
                 <input type="hidden" id="idCadastroImovel" name="idCadastroImovel" value="${param.idCadastroImovel}">
 
 
