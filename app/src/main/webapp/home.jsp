@@ -3,24 +3,30 @@
 <head>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <link href="webjars/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./Styles/footer.css">
+    <link rel="stylesheet" href="./Styles/Home/home.css">
     <style>
-        .navbar-nav {
-            margin-left: auto;
+
+
+        .navbar{
+         background-image: url('./Imagens/praia.jpg');
+
+             background-size: cover;
+             background-position: top;
+             height: 90vh;
+             display: block;
+             justify-content: center;
+             align-items: center;
+             position: relative;
+
         }
-        .special-link {
-            color: red;
-            font-weight: bold;
-        }
-        .navbar-brand img {
-            max-height: 40px; /* Ajuste a altura máxima da imagem */
-            margin-right: 10px; /* Adiciona um espaço à direita da imagem */
-        }
+
+
     </style>
     <meta charset="UTF-8">
     <title>Cadastro</title>
 </head>
 <body>
+<header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="/home"><img src="./Imagens/logo.png"></a>
@@ -47,6 +53,9 @@
             </div>
         </div>
     </nav>
+</header>
+    </nav>
+
 
     <h1>Grandes Oportunidades</h1>
     <div class="row justify-content-center">
@@ -71,22 +80,51 @@
 
 
 
-    <footer class="footer">
-        <div class="container-footer">
-            <div class="row">
-                <div class="footer-col">
-                    <h4>Alternative menu</h4>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                </div>
-                <div class="footer-col">
-                    <h4>Social networks</h4>
-                    <div class="social-links"></div>
-                </div>
-            </div>
-        </div>
-    </footer>
+   <footer class="footer">
+
+     <div class="container p-4">
+
+       <div class="row">
+
+         <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+           <h5 class="text-uppercase"><strong>Contatos</strong></h5>
+
+           <p>
+             <ul>
+             <li>Istagram</li>
+
+             <li>Facebook</li>
+
+             <li>X</li>
+
+             <li>realstateAdm@real.com</li>
+             </ul>
+           </p>
+         </div>
+
+
+
+         <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+           <h5 class="text-uppercase"><strong>Sobre Nosso Site</strong></h5>
+
+           <p>
+             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
+             molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae aliquam
+             voluptatem veniam, est atque cumque eum delectus sint!
+           </p>
+         </div>
+
+       </div>
+
+     </div>
+
+
+     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+        2024 Copyright: Real State
+       <a class="text-body" href="/home">Real.State</a>
+     </div>
+
+   </footer>
 
     <script src="webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 </body>
