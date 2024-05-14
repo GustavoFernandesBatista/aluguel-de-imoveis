@@ -28,12 +28,7 @@ public class CreateCadastroImovel extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-
-
-
         Map<String, String> parameters = uploadImage(req);
-
-
 
         String idCadastroImovel = parameters.get("idCadastroImovel");
         String titulo_imovel = parameters.get("titulo-imovel");
@@ -51,17 +46,21 @@ public class CreateCadastroImovel extends HttpServlet {
         CadastroImovel cadastroImovel = new CadastroImovel(idCadastroImovel, titulo_imovel, endereco, num_quartos, num_banheiro, num_vagas, valor_noite, imagens, obs,email,telefone);
 
 
-        if (idCadastroImovel != null && !idCadastroImovel.isBlank()) {
-            cadastroImovelDao.updateCadastroImovel(cadastroImovel);
-        } else {
 
+
+
+        if (idCadastroImovel != null && !idCadastroImovel.isBlank()){
+            cadastroImovelDao.updateCadastroImovel(cadastroImovel);
+
+        }else{
             cadastroImovelDao.createImovel(cadastroImovel);
         }
 
-
         resp.sendRedirect("/HomeLogada");
+
     }
 
+    //--------------------------------------------------------------------------------------------------
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("cadastroImovel.jsp").forward(req, resp);
@@ -84,7 +83,7 @@ public class CreateCadastroImovel extends HttpServlet {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace(); // Adicione o tratamento de exceção apropriado
+            e.printStackTrace();
             parameters.put("imagens", "Imagens/logo.png");
         }
 

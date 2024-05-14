@@ -23,14 +23,14 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/home"><img src="./Imagens/logo.png"></a>
+            <a class="navbar-brand" href="/HomeLogada"><img src="./Imagens/logo.png"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sobre nos</a>
+                        <a class="nav-link" href="#footer">Sobre nos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/cadastroImovel">Anunciar</a>
@@ -66,7 +66,7 @@
         </c:if>
     </c:forEach>
 </div>
-<footer class="footer">
+<footer class="footer" id = "footer">
     <div class="container p-4">
         <div class="row">
             <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
@@ -97,6 +97,21 @@
         <a class="text-body" href="/HomeLogada">Real.State</a>
     </div>
 </footer>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Seleciona todos os links que apontam para o rodapé
+    var links = document.querySelectorAll('a[href^="#footer"]');
+
+    // Adiciona um evento de clique em cada link
+    links.forEach(function (link) {
+      link.addEventListener('click', function (event) {
+        event.preventDefault(); // Impede o comportamento padrão do link
+        var target = document.getElementById('footer'); // Obtém o elemento de destino (o rodapé)
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' }); // Rola a página até o rodapé
+      });
+    });
+  });
+</script>
 <script src="webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

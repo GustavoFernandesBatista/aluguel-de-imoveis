@@ -94,38 +94,42 @@ public class CadastroImovelDao {
             return Collections.emptyList();
 
 
-            }
         }
+    }
 
-        //-----------------------------------------------------------------------------------------------------------------------------------------------------------------
-        public void deleteCadastroImovelById(String CadastroImovelId ){
-            String SQL = "DELETE FROM CADASTRO_IMOVEL WHERE ID_CADASTRO_IMOVEL = ?";
+    //-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+    public void deleteCadastroImovelById(String CadastroImovelId ){
+        String SQL = "DELETE FROM CADASTRO_IMOVEL WHERE ID_CADASTRO_IMOVEL = ?";
 
-            try {
-                Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
 
-                System.out.println("success in database connection");
+            System.out.println("success in database connection");
 
-                PreparedStatement preparedStatement = connection.prepareStatement(SQL);
-                preparedStatement.setString(1, CadastroImovelId);
-                preparedStatement.execute();
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            preparedStatement.setString(1, CadastroImovelId);
+            preparedStatement.execute();
 
-                System.out.println("SUCESSO EM DELETAR CADASTRO IMOVEL COM ID " + CadastroImovelId);
+            System.out.println("SUCESSO EM DELETAR CADASTRO IMOVEL COM ID " + CadastroImovelId);
 
-                connection.close();
+            connection.close();
 
 
-            }catch (Exception e){
-                System.out.println("ERRO AO CONECTAR AO BANCO DE DADOS");
-            }
+        }catch (Exception e){
+            System.out.println("ERRO AO CONECTAR AO BANCO DE DADOS");
         }
+    }
+
+
+    // -----------------------------------------------------------------------------------------------------------------------------------
 
     public void updateCadastroImovel(CadastroImovel cad){
-        String SQL = "UPDATE CADASTRO_IMOVEL SET TITULO_IMOVEL = ?, ENDERECO = ?, NUM_QUARTOS = ?, NUM_BANHEIROS = ?, NUM_VAGAS = ?, VALOR_NOITE = ?, IMAGENS = ?, OBS = ?, email = ? , telefone = ? WHERE ID_CADASTRO_IMOVEL = ?";
+        String SQL = "UPDATE CADASTRO_IMOVEL SET TITULO_IMOVEL = ?, ENDERECO = ?, NUM_QUARTOS = ?, NUM_BANHEIROS = ?, NUM_VAGAS = ?, VALOR_NOITE = ?, IMAGENS = ?, OBS = ?, email = ?, telefone  = ? WHERE ID_CADASTRO_IMOVEL = ?";
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
             System.out.println("Sucesso na conexão com o banco de dados");
+
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
             preparedStatement.setString(1, cad.getTituloImovel());
@@ -163,7 +167,7 @@ public class CadastroImovelDao {
             preparedStatement.setString(1, id);
 
             ResultSet resultSet = preparedStatement.executeQuery();
-    CadastroImovel imovel = new CadastroImovel();
+            CadastroImovel imovel = new CadastroImovel();
             while (resultSet.next()) {
                 String idCadastroImovel = resultSet.getNString("ID_CADASTRO_IMOVEL");
                 String tituloImovel = resultSet.getNString("TITULO_IMOVEL");
@@ -188,10 +192,7 @@ public class CadastroImovelDao {
             return imovel;
         }catch (Exception e){
             System.out.println("Erro ao consultar imovel " + e.getMessage());
-        return null;
+            return null;
         }
     }
 }
-
-
-

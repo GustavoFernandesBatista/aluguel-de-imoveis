@@ -23,7 +23,10 @@
             <th>Numero de Vagas</th>
             <th>Valor por Noite</th>
             <th>Imagens</th>
+            <th>Email</th>
+            <th>Telefone</th>
             <th>Observacoes</th>
+
             <th>Acoes</th>
         </tr>
         <c:forEach var="cadastro" items="${cadastroImov}">
@@ -36,12 +39,14 @@
                 <td>${cadastro.numVagas}</td>
                 <td>${cadastro.valorNoite}</td>
                 <td>${cadastro.imagens}</td>
+                <td>${cadastro.email}</td>
+                <td>${cadastro.telefone}</td>
                 <td>${cadastro.obs}</td>
                 <td>
                     <form action="/delete-cadastroImovel" method="post">
                         <input type="hidden" id="id" name="id" value="${cadastro.idCadastroImovel}">
                         <button type="submit" class="btn btn-primary">Delete</button>
-                        <a class="btn btn-secondary" href="cadastroImovel.jsp?idCadastroImovel=${cadastro.idCadastroImovel}&name=${cadastro.tituloImovel}&endereco=${cadastro.endereco}&numquartos=${cadastro.numQuartos}&numbanheiro=${cadastro.numBanheiro}&numvagas=${cadastro.numVagas}&valornoite=${cadastro.valorNoite}&img=${cadastro.imagens}&obs=${cadastro.obs}">Update</a>
+                        <a class="btn btn-secondary" href="cadastroImovel.jsp?idCadastroImovel=${cadastro.idCadastroImovel}&name=${cadastro.tituloImovel}&endereco=${cadastro.endereco}&numquartos=${cadastro.numQuartos}&numbanheiro=${cadastro.numBanheiro}&numvagas=${cadastro.numVagas}&valornoite=${cadastro.valorNoite}&Img=${cadastro.imagens}&Email=${cadastro.email}&telefone=${cadastro.telefone}&obs=${cadastro.obs}">Update</a>
                     </form>
                 </td>
             </tr>
