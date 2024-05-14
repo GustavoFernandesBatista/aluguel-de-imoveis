@@ -2,11 +2,26 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #FFD18B;
+
 }
 
 .navbar-brand {
     margin-right: 20px;
+    background-color: #FFD18B;
+    padding: 10px;
+    background-image: url('./Imagens/logo.png'); /* Add the logo image as a background image */
+    background-size: contain; /* Scale the background image to fit the container */
+    background-position: left center; /* Position the background image to the left center */
+    width: 100px; /* Set the width of the logo image */
+    height: 50px; /* Set the height of the logo image */
+}
+
+.logo{
+background-color: #FFD18B;
+}
+
+.navbar-brand img {
+
 }
 
 .navbar-nav {
@@ -21,10 +36,10 @@ header {
 
 .containerIMG-table {
     display: flex;
-    flex-direction: column; /* Ajusta para uma direção de coluna */
-    align-items: center; /* Alinha os itens no centro horizontalmente */
-    justify-content: center; /* Alinha os itens no centro verticalmente */
-    margin-top: 20px; /* Adiciona espaço do topo da página */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .special-link {
