@@ -41,7 +41,7 @@ public class CreateLogin extends HttpServlet{
         if (acesso) {
             System.out.println("Login bem-sucedido para o usuário: " + email);
 
-            resp.sendRedirect(req.getContextPath() +"/home");
+            resp.sendRedirect(req.getContextPath() +"/HomeLogada");
 
 
         } else {

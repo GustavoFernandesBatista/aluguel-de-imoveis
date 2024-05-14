@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./Styles/Cadastro_Imovel/cadastroImovel.css">
-    <title>ADIMO - Ficha Cadastral</title>
+    <title>Cadastro Imovel</title>
 </head>
 <body>
 <div class="container">

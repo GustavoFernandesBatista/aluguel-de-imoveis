@@ -59,7 +59,7 @@ public class CreateCadastroImovel extends HttpServlet {
         }
 
 
-        resp.sendRedirect("/home");
+        resp.sendRedirect("/HomeLogada");
     }
 
     @Override
