@@ -46,7 +46,7 @@
                     <form action="/delete-cadastroImovel" method="post">
                         <input type="hidden" id="id" name="id" value="${cadastro.idCadastroImovel}">
                         <button type="submit" class="btn btn-primary">Delete</button>
-                        <a class="btn btn-secondary" href="cadastroImovel.jsp?idCadastroImovel=${cadastro.idCadastroImovel}&name=${cadastro.tituloImovel}&endereco=${cadastro.endereco}&numquartos=${cadastro.numQuartos}&numbanheiro=${cadastro.numBanheiro}&numvagas=${cadastro.numVagas}&valornoite=${cadastro.valorNoite}&Img=${cadastro.imagens}&Email=${cadastro.email}&telefone=${cadastro.telefone}&obs=${cadastro.obs}">Update</a>
+                        <a class="btn btn-secondary" href="cadastroImovel.jsp?idCadastroImovel=${cadastro.idCadastroImovel}&name=${cadastro.tituloImovel}&endereco=${cadastro.endereco}&numquartos=${cadastro.numQuartos}&numbanheiro=${cadastro.numBanheiro}&numvagas=${cadastro.numVagas}&valornoite=${cadastro.valorNoite}&Email=${cadastro.email}&telefone=${cadastro.telefone}&obs=${cadastro.obs}">Update</a>
                     </form>
                 </td>
             </tr>

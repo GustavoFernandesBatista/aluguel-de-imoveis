@@ -53,20 +53,13 @@
         <input type="hidden" id="idCadastroImovel" name="idCadastroImovel" value="${param.idCadastroImovel}">
 
         <label>Imagem</label>
-        <input type="file" name="imagens" id="imagens" value="${param.Img}">
-
+        <input type="file" name="imagens" id="imagens" value="${param.imagens}">
+        <input type="hidden" id="idCadastroImovel" name="idCadastroImovel" value="${param.idCadastroImovel}">
 
         <button type="submit">Register</button>
     </form>
 </div>
 
 
-
-<script>
-    document.getElementById("imagens").addEventListener("change", function() {
-        var nomeImagem = document.getElementById("imagens").files[0].name;
-        document.getElementById("nome-imagem").value = nomeImagem;
-    });
-</script>
 </body>
 </html>

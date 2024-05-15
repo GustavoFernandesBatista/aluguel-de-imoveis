@@ -3,6 +3,7 @@ import br.com.imoveisservlet.dao.CadastroImovelDao;
 import br.com.imoveisservlet.model.CadastroImovel;
 
 import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
@@ -18,7 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload.isMultipartContent;
+import static org.apache.commons.fileupload.servlet.ServletFileUpload.isMultipartContent;
 
 
 @WebServlet("/cadastroImovel")
@@ -28,7 +29,12 @@ public class CreateCadastroImovel extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-        Map<String, String> parameters = uploadImage(req);
+        Map<String, String> parameters = null;
+        try {
+            parameters = uploadImage(req);
+        } catch (Exception e) {
+
+        }
 
         String idCadastroImovel = parameters.get("idCadastroImovel");
         String titulo_imovel = parameters.get("titulo-imovel");
@@ -67,36 +73,38 @@ public class CreateCadastroImovel extends HttpServlet {
 
     }
 
-    private Map<String, String> uploadImage(HttpServletRequest request) {
+    private Map<String, String> uploadImage(HttpServletRequest request) throws Exception{
         HashMap<String, String> parameters = new HashMap<>();
 
-        try {
-            DiskFileItemFactory diskFileItemFactory = new DiskFileItemFactory();
-            List<FileItem> fileItemList = new ServletFileUpload(diskFileItemFactory).parseRequest(request);
+        if (isMultipartContent(request)) {
 
-            for (FileItem fileItem : fileItemList) {
-                if (fileItem.isFormField()) {
-                    parameters.put(fileItem.getFieldName(), fileItem.getString());
-                } else {
-                    String fileName = processUploadedFile(fileItem);
-                    parameters.put("imagens", fileName);
+            try {
+
+                DiskFileItemFactory diskFileItemFactory = new DiskFileItemFactory();
+                List<FileItem> fileItems = new ServletFileUpload(diskFileItemFactory).parseRequest(request);
+
+                for (FileItem fileItem : fileItems) {
+                    checkFieldType(fileItem,parameters );
                 }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            parameters.put("imagens", "Imagens/logo.png");
-        }
 
+            } catch (FileUploadException e) {
+                parameters.put("image", "");
+
+            }
+
+
+        }
         return parameters;
     }
     private void checkFieldType(FileItem files, Map requestParameter)throws Exception{
         if (files.isFormField()){
             requestParameter.put(files.getFieldName(), files.getString());
         }else {
-            String fileName =   processUploadedFile(files);
+            String fileName = processUploadedFile(files);
             requestParameter.put("image", fileName);
 
         }
+
 
     }
 
