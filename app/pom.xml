@@ -62,7 +62,7 @@
     </dependencies>
     <build>
 
-        <finalName>carstore</finalName>
+        <finalName>Real-State</finalName>
 
         <plugins>
             <plugin>

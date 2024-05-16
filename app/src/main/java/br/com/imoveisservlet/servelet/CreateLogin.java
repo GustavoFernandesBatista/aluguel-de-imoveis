@@ -22,7 +22,7 @@ public class CreateLogin extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("Login.html").forward(req, resp);
+        req.getRequestDispatcher("Login.jsp").forward(req, resp);
 
         processRequest(req, resp);
     }
