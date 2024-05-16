@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./Styles/Login/login.css">
     <link rel="stylesheet" href="./Styles/footer.css">
 
-    <title>ADIMO - Login</title>
+    <title> RealState </title>
 </head>
 <body>
 

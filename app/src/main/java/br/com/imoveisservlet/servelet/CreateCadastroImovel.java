@@ -62,7 +62,7 @@ public class CreateCadastroImovel extends HttpServlet {
             cadastroImovelDao.createImovel(cadastroImovel);
         }
 
-        resp.sendRedirect("/HomeLogada");
+        resp.sendRedirect("/painel-imovel");
 
     }
 
@@ -104,7 +104,6 @@ public class CreateCadastroImovel extends HttpServlet {
             requestParameter.put("image", fileName);
 
         }
-
 
     }
 
