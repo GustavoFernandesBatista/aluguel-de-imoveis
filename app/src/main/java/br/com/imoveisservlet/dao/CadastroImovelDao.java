@@ -70,7 +70,7 @@ public class CadastroImovelDao {
                 String numBanheiros = resultSet.getNString("NUM_BANHEIROS");
                 String numVagas = resultSet.getNString("NUM_VAGAS");
                 String valorNoite = resultSet.getNString("VALOR_NOITE");
-                String imagem = resultSet.getNString("IMAGENS");
+                String imagem = resultSet.getString("IMAGENS");
                 String obs = resultSet.getNString("OBS");
                 String email = resultSet.getNString("email");
                 String telefone = resultSet.getNString("telefone");

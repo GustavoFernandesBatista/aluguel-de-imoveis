@@ -25,7 +25,7 @@
 
     <div class="containerIMG-table">
         <div class="containerIMG">
-            <img src="./Imagens/maresias.jpg">
+            <img src="/img/${imovel.imagens}" class="card-img-top" alt="...">
         </div>
 
         <br>

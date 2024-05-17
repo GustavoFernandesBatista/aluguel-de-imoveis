@@ -88,7 +88,7 @@ public class CreateCadastroImovel extends HttpServlet {
                 }
 
             } catch (FileUploadException e) {
-                parameters.put("image", "");
+                parameters.put("imagens", "");
 
             }
 
@@ -101,7 +101,7 @@ public class CreateCadastroImovel extends HttpServlet {
             requestParameter.put(files.getFieldName(), files.getString());
         }else {
             String fileName = processUploadedFile(files);
-            requestParameter.put("image", fileName);
+            requestParameter.put("imagens", fileName);
 
         }
 

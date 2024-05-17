@@ -54,7 +54,7 @@
         <div class="col-md-3 mb-4">
             <div class="card" style="width: 15rem;">
                 <div class="card-body text-center">
-                    <img src="${imovel.imagens}" class="card-img-top" alt="...">
+                    <img src="/img/${imovel.imagens}" class="card-img-top" alt="...">
                     <h5 class="card-title">${imovel.tituloImovel}</h5>
                     <p class="card-text">R$ ${imovel.valorNoite}</p>
                     <a href="/infoImovel?id=${imovel.idCadastroImovel}" class="btn btn-primary" style="background-color: #D2A93F;">Ver mais...</a>
